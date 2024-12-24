@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prashant Basyal</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <link rel="icon" type="image/png" href="/src/android-chrome-192x192-removebg-preview.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #dbcdcd; /* Main color code */
+            transition: background 0.3s, color 0.3s;
+        }
+        h1, h2, h3, .nav-links li a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+        body.dark-mode {
+            background: #2a2d30; /* Dark mode background */
+            color: #ecf0f1; /* Dark mode text color */
+        }
+    
+        h1, h2 {
+            color: #444;
+            background: linear-gradient(90deg, rgb(5, 5, 5), #07c0d8, rgb(5, 5, 5));
+             background-clip: text;
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             animation: gradient 5s infinite;
+        }
+
+        body.dark-mode h1, body.dark-mode h2 {
+            color: #ecf0f1;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header {
+            background: #6d7993; /* Nav bar color */
+            color: #fff;
+            padding: 1rem;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode .header {
+            background: #34495e; /* Dark mode nav bar color */
+            color: #ecf0f1; /* Dark mode nav bar text color */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        body.dark-mode .nav-links li a {
+            color: #fff;
+        }
+
+        .nav-links li a:hover {
+            color: #f90;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            margin-right: 0.5rem; /* Reduce margin */
+        }
+
+        .dark-mode-toggle {
+            cursor: pointer;
+        }
+
+        .home {
+            width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+        .home-content {
+            display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+        .home-content img {
+            max-width: 50%;
+            height: 50%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        .home-content .text-section {
+            border: 2px solid #dfdbdb; /* Border for text section */
+            border-radius: 10px;
+            padding: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            margin-right: 2rem;
+
+        }
+
+        #typewriter-text-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    margin-top: 80px; /* Space below navbar */
+    margin-bottom: 20px;    }
+
+        #typewriter-text {
+            margin-top: 130px;
+    align-items: center;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 2.5rem;
+    color: #fff; /* Replace with your preferred color */
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #fff; /* Blinking cursor effect */
+    display: inline-block;
+    animation: blink 0.6s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.tech-stack {
+            text-align: center;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .stack-container {
+            position: relative;
+            padding: 0 40px;
+            margin-top: 2rem;
+        }
+        .stack-carousel {
+            display: flex;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            border: 2px solid #dfdbdb;
+            border-radius: 10px;
+            padding: 1rem;
+        }
+        .stack-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .stack-item {
+            flex: 0 0 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            margin: 0 0.5rem;
+        }
+        .stack-item img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 0.5rem;
+        }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #f5f5f5;
+        }
+
+        .prev-button {
+            left: 0;
+        }
+
+        .next-button {
+            right: 0;
+        }
+
+        .nav-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Pagination dots */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #dfdbdb;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .stack-container {
+                padding: 0 30px;
+            }
+
+            .stack-item {
+                flex: 0 0 100px;
+            }
+
+            .nav-button {
+                width: 30px;
+                height: 30px;
+            }
+
+            .nav-button svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+@media (min-width: 769px) {
+    .home-content {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-section {
+        flex: 1;
+        text-align: center;
+    }
+
+    .image-section {
+        flex: 1;
+        justify-content: center;
+        text-align: right;
+    }
+
+    .home-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+}
+
+.about, .projects, .gallery {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 150px;
+
+
+}
+
+.project-grid, .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.project-item, .gallery-item {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.project-item img, .gallery-item img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.project-item:hover, .gallery-item:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background: #6d7993; /* Footer color */
+    color: #333; /* Light mode footer text color */
+    transition: background 0.3s, color 0.3s ease;
+}
+
+body.dark-mode .footer {
+    background: #34495e; /* Dark mode footer color */
+    color: #ecf0f1; /* Dark mode footer text color */
+}
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: flex;
+        margin-left: auto;
+
+    }
+    .light-mode .menu-toggle {
+    color: #fff; /* Light mode text color */
+    background: #f39c12; /* Light mode background color */
+
+    
+}
+.dark-mode .menu-toggle {
+    color: #fff; /* Dark mode text color */
+    background: #34495e; /* Dark mode background color */
+}
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #444;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #f90;
+}
+
+#particles-js {
+    position: fixed; /* Change to fixed to cover the entire page */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place behind other content */
+    background: #6d7993; /* Main color code */
+    transition: background 0.3s;
+}
+
+body.dark-mode #particles-js {
+    background: #2c3e50; /* Dark mode background */
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header, .footer {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .subtitle {
+            color: #9d9d9d;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            color: #9d8cf7;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-card {
+            background-color: #1b2132;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .icon {
+            color: #9d8cf7;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            color: #9d9d9d;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            color: #9d9d9d;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #1b2132;
+            border: 1px solid #2d3548;
+            border-radius: 0.5rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #9d8cf7;
+            box-shadow: 0 0 0 2px rgba(157, 140, 247, 0.2);
+        }
+
+        textarea.form-input {
+            resize: none;
+            height: 150px;
+        }
+
+        .submit-btn {
+            background-color: #9d8cf7;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #8b7ae6;
+        }
+        .content {
+            border: 4px solid #f7eeee; /* Border for text section */
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        #timeline {
+    padding: 2rem;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 20px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background:rgb(54, 117, 136);
+}
+
+.timeline-item {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.timeline-item h3 {
+    margin: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background: rgb(255, 127, 80);
+    border-radius: 50%;
+}
+.navbar-logo {
+    width: 30px; 
+    height: 30px; 
+    margin-right: 10px; 
+}
+
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div> <!-- Move this to the top of the body -->
+    
+    <header class="header glass" style="position: fixed; width: 100%; top: 0; z-index: 1000;">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="home.html"><img src="src/android-chrome-192x192-removebg-preview.png" alt="Logo" class="navbar-logo">
+                </a>
+                
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+            <div class="dark-mode-toggle" id="dark-mode-toggle">🌙</div>
+        </nav>
+    </header>
+   <!--Dark mode/light mode-->
+   <script>
+    particlesJS("particles-js", {
+    particles: {
+        number: {
+            value: 80, // Number of particles
+            density: {
+                enable: true,
+                value_area: 800, // Density of particles in the area
+            },
+        },
+        color: {
+            value: "#000000", // Change particle color to black
+        },
+        shape: {
+            type: "circle", // Shape of particles ("circle", "edge", "triangle", etc.)
+            stroke: {
+                width: 0,
+                color: "#000000",
+            },
+        },
+        opacity: {
+            value: 0.5,
+            random: false,
+            anim: {
+                enable: false,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false,
+            },
+        },
+        size: {
+            value: 3,
+            random: true,
+            anim: {
+                enable: false,
+                speed: 40,
+                size_min: 0.1,
+                sync: false,
+            },
+        },
+        line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#000000", // Change line color to black
+            opacity: 0.4,
+            width: 1,
+        },
+        move: {
+            enable: true,
+            speed: 6, // Particle movement speed
+            direction: "none", // Movement direction ("none", "top", "right", etc.)
+            random: false,
+            straight: false,
+            out_mode: "out", // What happens when particles leave the canvas ("out" or "bounce")
+            attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200,
+            },
+        },
+    },
+    interactivity: {
+        detect_on: "canvas", // Where to detect interaction ("canvas" or "window")
+        events: {
+            onhover: {
+                enable: true,
+                mode: "grab", // Interaction mode ("grab", "bubble", "repulse")
+            },
+            onclick: {
+                enable: true,
+                mode: "push", // Action on click ("push", "remove", "bubble", "repulse")
+            },
+            resize: true,
+        },
+        modes: {
+            grab: {
+                distance: 140,
+                line_linked: {
+                    opacity: 1,
+                },
+            },
+            bubble: {
+                distance: 200,
+                size: 40,
+                duration: 2,
+                opacity: 8,
+                speed: 3,
+            },
+            repulse: {
+                distance: 200,
+                duration: 0.4,
+            },
+            push: {
+                particles_nb: 4,
+            },
+            remove: {
+                particles_nb: 2,
+            },
+        },
+    },
+    retina_detect: true,
+});
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // Check for saved user preference, if any, on load of the website
+    if (localStorage.getItem('dark-mode') === 'true') {
+        body.classList.add('dark-mode');
+        darkModeToggle.textContent = '☀️';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDarkMode = body.classList.contains('dark-mode');
+        darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+        localStorage.setItem('dark-mode', isDarkMode);
+    });
+   </script>
+         
+<!-- Home Section -->
+
+<div id="typewriter-text-container" style="margin-top: 10px;"> <!-- Adjust margin-top to reduce gap -->
+    <div id="typewriter-text">
+        <h1 id="typewriter-text" style="text-align: center;"></h1>    </div>
+</div>
+
+    <section id="home" class="home" style="margin-top: 10px;"> <!-- Adjust margin-top to account for fixed navbar -->
+        <div class="home-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;"> <!-- Center the home-content -->
+            <div class="text-section">
+                <p>
+                    Hi, I’m <b>Prashant Basyal!</b><br>
+                    <small><b>Computer Science (Data Science <i> .Conc</i>)</b><br></small>
+                    <small><b>Jacksonville State University- Jacksonville, AL</b></small><br>
+                    <small>I’m on a journey to combine the precision of mathematics with the creativity of coding to solve meaningful problems.</small>
+                     
+                
+                </p>
+                <div class="image-section">
+                    <img src="src/my.png" alt="Profile Picture">
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const textElement = document.getElementById("typewriter-text");
+    const texts = ["Greetings", "नमस्कार"]; // Array of texts
+    const typingSpeed = 150; // Typing speed in milliseconds
+    const pauseDuration = 1000; // Pause duration between transitions
+
+    let i = 0; // Index for texts array
+    let j = 0; // Index for characters in the current text
+
+    function typeText() {
+        if (j < texts[i].length) {
+            textElement.textContent += texts[i].charAt(j);
+            j++;
+            setTimeout(typeText, typingSpeed);
+        } else {
+            setTimeout(clearText, pauseDuration);
+        }
+    }
+
+    function clearText() {
+        if (j > 0) {
+            textElement.textContent = textElement.textContent.slice(0, -1);
+            j--;
+            setTimeout(clearText, typingSpeed);
+        } else {
+            i = (i + 1) % texts.length; // Move to the next text in the array
+            setTimeout(typeText, pauseDuration);
+        }
+    }
+
+    typeText(); // Start the loop
+});
+
+    </script>
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            I’m a <b>Computer Science</b> major at Jacksonville State University with a concentration in <b>Data Science</b>, passionate about <b>Quant, AI, Software Development, Research</b>,and <b>Data Analysis.</b> I love solving intricate problems and crafting innovative solutions that make an impact.  
+            <br>
+            Outside the world of data and code, I enjoy writing, creating art, traveling, and challenging myself in the swimming pool. For me, every challenge—whether in work or play—is an opportunity to learn and grow. Let’s connect and create something remarkable!</p>
+        <h3>Education</h3>
+        <p>B.Sc. Computer Science concentration in <b>Data Science,</b> Jacksonville State University (2024-2027)</p>
+
+        <h3>Experience</h3>
+       <div class="timeline">
+        <div class="timeline-item">
+            <h3> <br>Aug, 2024</h3>
+            <p>Supplement Instruction Leader <br> <i><small>Jacksonville State University, Student Success Centre</small></i></p>
+        </div>
+        <div class="timeline-item">
+            <h3>  <br>Aug, 2024</h3>
+            <p>Treasurer <br> <i><small>Jacksonville State University Maths Club</small></i></p>
+        </div>
+        <div class="timeline-item">
+            <h3>  <br>2020 - 2023</h3>
+            <p>Lead Project Manager <br> <i><small> EMS Digital Media (Remote)</small></i></p>
+        </div>
+       </div>
+    </section>
+
+    <!-- Stack Section -->
+    <section class="tech-stack">
+        <h2>Tech Stack</h2>
+        <div class="stack-container">
+            <button class="nav-button prev-button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            
+            <div class="stack-carousel">
+                <div class="stack-wrapper">
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5">
+                        <span>HTML</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript">
+                        <span>JS</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3">
+                        <span>CSS</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/r/r-original.svg" alt="R">
+                        <span>R</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C">
+                        <span>C</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                        <span>C++</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="NumPy">
+                        <span>NumPy</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas">
+                        <span>Pandas</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg" alt="Jupyter">
+                        <span>Jupyter</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">
+                        <span>Git</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub">
+                        <span>GitHub</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" alt="Figma">
+                        <span>Figma</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="Tableau">
+                        <span>Tableau</span>
+                    </div>
+                    <div class="stack-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="Excel">
+                        <span>Excel</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="nav-button next-button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+        <div class="pagination"></div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const wrapper = document.querySelector('.stack-wrapper');
+            const items = document.querySelectorAll('.stack-item');
+            const prevButton = document.querySelector('.prev-button');
+            const nextButton = document.querySelector('.next-button');
+            const pagination = document.querySelector('.pagination');
+            
+            let currentIndex = 0;
+            const itemWidth = window.innerWidth <= 768 ? 100 : 120; // Responsive item width
+            let itemsToShow = Math.max(1, Math.floor((wrapper.parentElement.offsetWidth - 40) / itemWidth));
+            let maxIndex = Math.max(0, items.length - itemsToShow);
+
+            // Create pagination dots
+            function createPagination() {
+                pagination.innerHTML = '';
+                const numDots = maxIndex + 1;
+                for (let i = 0; i < numDots; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = `dot ${i === currentIndex ? 'active' : ''}`;
+                    dot.addEventListener('click', () => {
+                        currentIndex = i;
+                        updateSlidePosition();
+                        updatePagination();
+                    });
+                    pagination.appendChild(dot);
+                }
+            }
+
+            function updatePagination() {
+                const dots = document.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            function updateSlidePosition() {
+                wrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                updatePagination();
+            }
+
+            function updateSlidesConfig() {
+                itemsToShow = Math.max(1, Math.floor((wrapper.parentElement.offsetWidth - 40) / itemWidth));
+                maxIndex = Math.max(0, items.length - itemsToShow);
+                if (currentIndex > maxIndex) {
+                    currentIndex = maxIndex;
+                    updateSlidePosition();
+                }
+                createPagination();
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlidePosition();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateSlidePosition();
+                }
+            });
+
+            // Touch events
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            wrapper.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            wrapper.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const diffX = touchStartX - touchEndX;
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0 && currentIndex < maxIndex) {
+                        currentIndex++;
+                        updateSlidePosition();
+                    } else if (diffX < 0 && currentIndex > 0) {
+                        currentIndex--;
+                        updateSlidePosition();
+                    }
+                }
+            }
+
+            // Resize handling
+            window.addEventListener('resize', updateSlidesConfig);
+
+            // Initial setup
+            updateSlidesConfig();
+        });
+    </script>
+
+    
+    <!--End of Stack section-->
+
+
+
+     <!--Project section-->   
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="src/OOtD.png" alt="Project 1">
+                <h3>Project 1: OOTD</h3>
+                <p>OOTD is not just another fashion app; it serves as a smart, AI-powered outfit recommendation assistant.</p>
+                <a href="https://devpost.com/software/outfit-of-the-day-ootd#updates" target="_blank">View Details</a>
+            </div>
+            <div class="project-item">
+                <img src="src/resq.png" alt="Project 2">
+                <h3>Project 2: ResQ
+                </h3>
+                <p>Empowering safety and harmony: Your pocket guide to snakes, ensuring lives are protected, ecosystems thrive, and compassion for all creatures prevails.
+                </p>
+                <a href="https://devpost.com/software/resq-su3yoi" target="_blank">View Details</a>
+            </div>
+            <div class="project-item">
+                <img src="src/tableau.png" alt="Project 1">
+                <h3>Project 3: All of My Tableau projects</h3>
+                <p>Comparison of visualizations using Tableau, SQL, and Python.</p>
+                <a href="#">View Details</a>
+            </div>
+            <div class="project-item">
+                <img src="src/lcurve.png" alt="Project 2">
+                <h3>Project 4: Learning Curve Academy</h3>
+                <a href="https://github.com/lamdiv/learningcurve" target="_blank">View Details</a>
+            </div>
+            <div class="project-item">
+                <img src="src/sahuji.png" alt="Project 1">
+                <h3>Project 5: SAHUJI-CASHIER-- <br> APPLICATION
+                </h3>
+                <p>Cashier software using C++.</p>
+                <a href="https://github.com/heyitsprashant/SAHUJI-CASHIER--APPLICATION" target="_blank">View Details</a>
+            </div>
+            <div class="project-item">
+                <img src="src/2.png" alt="Project 2">
+                <h3>Project 6: Entrance-management-system
+                </h3>
+                <p>Entrance-management-system using C.</p>
+                <a href="https://github.com/heyitsprashant/Entrance-management-system" target="_blank">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="src/galtinburg.jpg" alt="The road, a serpent of asphalt, slithered through the fog-choked valley, each curve a question without an answer" class="clickable">
+                <p>Unknown Highway</p>
+            </div>
+            <div class="gallery-item">
+                <img src="src/red sunset.jpg" alt="Hark! How the sunset bleeds, a fiery wound, painting the heavens with blood of the dying day.
+
+
+                " class="clickable">
+                <p>Crimson Sunset</p>
+            </div>
+            <div class="gallery-item">
+                <img src="src/columbus.jpg" alt="The LeVeque Tower, a pale giant against the bruised velvet sky, watches over the city's sleepless soul, its secrets laid bare in the neon glow." class="clickable">
+                <p>The LeVeque Tower, Columbus, OH</p>
+            </div>
+            <div class="gallery-item">
+                <img src="src/smoky hills.jpg" alt="The cable car ascends, a silver serpent scaling the green mountain, while below, life unfolds in the shadow of the skyway, a symphony of human motion." class="clickable">
+                <p>Galtinburg</p>
+            </div>
+            <div class="gallery-item">
+                <img src="src/florida sunset.jpg" alt="The sun, a molten coin, sinks into the ocean's velvet purse, painting the sky with hues of saffron and amethyst." class="clickable">
+                <p>Panama Beach, Florida</p>
+            </div>
+            <div class="gallery-item">
+                <img src="src/vintage car.jpg" alt="The old Lincoln, a relic of forgotten grandeur, stands sentinel under a sky bruised with the colors of a dying day." class="clickable">
+                <p>Golden Hour</p>
+            </div>
+        </div>
+         <div id="image-modal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modal-image">
+            <div id="caption"></div>
+        </div>
+    </section>
+
+    
+<!-- Contact section-->>
+    <section id="contact" class="contact">
+        <div class="container">
+            
+    
+            <div class="content">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <h2 class="section-title">Talk to me</h2>
+                    
+                    <div class="contact-card">
+                        <div class="icon">✉️</div>
+                        <h3 class="card-title">Email</h3>
+                        <p class="card-text">basyalprashant369@gmail.com
+                        </p>
+                    </div>
+    
+                    
+                    <div class="contact-card">
+                        <a href="https://www.linkedin.com/in/prashant-basyal-8217351a5/" target="_blank"><div class="icon">in</div></a>
+                        
+                        <h3 class="card-title">LinkedIn</h3>
+                        <p class="card-text">Prashant Basyal</p>
+                    </div>
+                </div>
+    
+                <!-- Right Column -->
+                <div class="right-column">
+                    <h2 class="section-title">Write Me your Message</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input id="name" name="name" type="text" class="form-input" placeholder="Enter name">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="email" class="form-label">Mail</label>
+                            <input id="email" name="email" type="email" class="form-input" placeholder="Enter email">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-input" placeholder="Write your Message"></textarea>
+                        </div>
+    
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <canvas class="background"></canvas>
+   <!-- Particles JS -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <!-- Footer section-->
+
+    <footer class="footer glass">
+        <b> PRASHANT</b>
+        <p>&copy; 2024 Prashant Basyal. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://github.com/heyitsprashant" target="_blank">
+                <img src="src/github-mark.png" alt="GitHub" class="social-icon" width="30" height="30" >
+            </a>
+            <a href="https://www.linkedin.com/in/prashant-basyal-8217351a5/" target="_blank">
+                <img src="src/link-logo.png" alt="LinkedIn" class="social-icon" width="30" height="30" >
+            </a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </footer>
+<!-- End of Footer section-->
+ <!-- Modal for Gallery Images JS -->
+     <script>
+        // Toggle Navbar for smaller screens
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Modal for Gallery Images
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const captionText = document.getElementById('caption');
+        const closeModal = document.querySelector('.close');
+
+        const clickableImages = document.querySelectorAll('.clickable');
+        clickableImages.forEach(image => {
+            image.addEventListener('click', () => {
+                modal.style.display = 'block';
+                modalImage.src = image.src;
+                captionText.textContent = image.alt;
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close modal on clicking outside of image
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+   
+
+
+</body>
+</html>
